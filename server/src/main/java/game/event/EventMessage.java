@@ -24,4 +24,12 @@ public class EventMessage {
     public void setProperties(Map<String, Object> properties) {
         this.properties = properties;
     }
+
+    @Override
+    public String toString() {
+        return "EventMessage{" +
+                "eventType=" + eventType +
+                ", properties=" + properties +
+                '}';
+    }
 }

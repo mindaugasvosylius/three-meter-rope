@@ -1,19 +1,21 @@
 package game.event.publisher;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import static java.lang.String.format;
+
+import java.util.List;
+
 import game.event.EventMessage;
 import game.event.WebSocketSessionRegistry;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
-
-import java.util.List;
-
-import static java.lang.String.format;
 
 @Component
 public class GameEventMessagePublisher {
@@ -43,7 +45,7 @@ public class GameEventMessagePublisher {
             LOGGER.debug(format("Now sending message: [%s]", messageString));
             session.sendMessage(new TextMessage(messageString));
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.error("Error publishing message: " + eventMessage, e);
         }
     }
 }
