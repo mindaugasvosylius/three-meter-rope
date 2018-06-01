@@ -1,6 +1,6 @@
 Game Id: {{id}}
 
-<div>
+<div id="actions">
   <button (click)="start()">Start</button>
   <button (click)="leave()">Leave</button>
 </div>
@@ -20,7 +20,6 @@ Game Id: {{id}}
         <div *ngFor="let whiteCard of playedWhiteCards" class="playedWhiteCard"
         (click)="chooseWinner(whiteCard)">
           <div class="cardText" *ngIf="showPlayedCards">
-            {{whiteCard.text}}
           </div>
         </div>
       </td>
